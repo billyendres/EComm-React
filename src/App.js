@@ -1,12 +1,23 @@
 import React from "react";
-import "./App.css";
-import Homepage from "./homepage.component";
+import { Routes, Route, Outlet } from "react-router-dom";
+import Home from "./routes/Home";
+
+const Nav = () => {
+  return (
+    <>
+      <h1>Navigation</h1>
+      <Outlet />
+    </>
+  );
+};
 
 const App = () => {
   return (
-    <div>
-      <Homepage />
-    </div>
+    <Routes>
+      <Route path="/" element={<Nav />}>
+        <Route index element={<Home />} />
+      </Route>
+    </Routes>
   );
 };
 
